@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
-    <title>Document</title>
-</head>
-<body>
-
-<div>
-
-</div>
-</body>
-</html>
+<?php
+require_once('config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,6 +34,27 @@
 </head>
 
 <body>
+
+<?php
+if(isset($_POST ['create'])){
+
+$firstname 		        = $_POST['firstname'];
+$lastname 		        = $_POST['lastname'];
+$email 			        = $_POST['email'];
+$password 		        = $_POST['password'];
+$password 		        = $_POST['password'];
+
+// $Confirmer_password		= $_POST['Confirmer_password'];
+
+         $sql = "INSERT INTO users (firstname, lastname, email, password ) VALUES(?,?,?,?)";
+         $stmtinsert = $db->prepare($sql);
+         $result = $stmtinsert->execute([$firstname, $lastname, $email, $password]);
+         if($result){
+             echo 'Successfully saved.';
+         }else{
+             echo 'There were erros while saving the data.';
+         }}
+?>
 
     <div class="brand">The Perfect Cup</div>
     <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
@@ -118,7 +126,7 @@
                     <input class="form-control" id="password"  type="password" name="password" required>
 
                     <label for="Confirmer password"><b>Confirmer password</b></label>
-                    <input class="form-control" id="Confirmer password"  type="text" name="Confirmer password" required>
+                    <input class="form-control" id="password"  type="password" name="password" required>
 					<hr class="mb-3">
 					<input class="btn btn-primary" type="submit" id="register" name="create" value="Sign Up">
 				</div>
@@ -196,7 +204,36 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
+    <script type="text/javascript">
+                 $(function(){
+
+                    $('#register').click(function(up){
+
+                   var valid = this.form.checkValid();
+
+                    if(valid){
+
+
+                   var firstname 	= $('#firstname').val();
+                   var lastname	    =  $('#lastname').val();
+                   var email 		= $('#email').val();
+                   var password 	= $('#password').val();
+
+
+                    up.preventDefault();	
+
+
+
+                       Swal.fire(
+                      'Successfully saved ',
+                      'This is from The Perfect Cup',
+                     'success'
+)
+});
+</script>
 </body>
 
 </html>

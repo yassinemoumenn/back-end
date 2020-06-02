@@ -1,11 +1,9 @@
-<?php
-require_once('config.php');
-?>
-<?php
-if(isset($_POST) ){
 
-$firstname 		= $_POST['firstname'];
-$lastname 		= $_POST['lastname'];
-$email 			= $_POST['email'];
-$password 		= $_POST['password'];
-?>
+<?php 
+
+$db_user = "root";
+$db_pass = "";
+$db_name = "back-end-site-web";
+
+$db = new PDO('mysql:host=localhost;dbname=' . $db_name . ';charset=utf8', $db_user, $db_pass);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);?>
