@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>The Perfect Cup - About Us</title>
+    <title>The Perfect Cup - Contact</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
 </head>
 
 <body>
@@ -36,7 +37,6 @@
     <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
 
     <!-- Navigation -->
-
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -52,18 +52,18 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="about.php">About</a>
                     </li>
                     <li>
-                        <a href="blog.html">Blog</a>
+                        <a href="blog.php">Blog</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.php">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -71,23 +71,33 @@
         </div>
         <!-- /.container -->
     </nav>
+
     <div class="container">
 
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">About
+                    <h2 class="intro-text text-center">Contact
                         <strong>The Perfect Cup</strong>
                     </h2>
                     <hr>
                 </div>
-                <div class="col-md-6">
-                    <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+                <div class="col-md-8">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.4557903780455!2d-118.33880764857918!3d34.08346238050228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b8d3b1e0287d%3A0x9cc32be17df028b8!2sMelrose+Ave%2C+Beverly+Hills%2C+CA+90210%2C+USA!5e0!3m2!1sen!2sca!4v1458950947899"
+                        width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
-                <div class="col-md-6">
-                    <p>The Perfect Cup launched in 2000, in the heart of California. Our mission is simple. We want to teach coffee drinkers all over the world how to make the perfect blend! Our coffee experts have a life-long passion for coffee. They are
-                        internationally travelled and have experienced many varieties.</p>
+                <div class="col-md-4">
+                    <p>Phone:
+                        <strong>123.456.7890</strong>
+                    </p>
+                    <p>Email:
+                        <strong><a href="mailto:info@theperfectcup.com">info@theperfectcup.com</a></strong>
+                    </p>
+                    <p>Address:
+                        <strong>3481 Melrose Place
+                            <br>Beverly Hills, CA 90210</strong>
+                    </p>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -97,30 +107,32 @@
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Our
-                        <strong>Team</strong>
+                    <h2 class="intro-text text-center">Contact
+                        <strong>form</strong>
                     </h2>
                     <hr>
+                    <div id="add_err2"></div>
+                    <form role="form">
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label>Name</label>
+                                <input type="text" id="fname" name="fname" maxlength="25" class="form-control">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label>Email Address</label>
+                                <input type="email" id="email" name="email" maxlength="25" class="form-control">
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group col-lg-12">
+                                <label>Message</label>
+                                <textarea class="form-control" id="message" name="message" maxlength="100" rows="6"></textarea>
+                            </div>
+                            <div class="form-group col-lg-12">
+                                <button type="submit" id="contact" class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="img/abt1.jpg" alt="">
-                    <h3>John Smith
-
-                    </h3>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="img/abt2.jpg" alt="">
-                    <h3>Pamela Burke
-
-                    </h3>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="img/abt3.jpg" alt="">
-                    <h3>Veronica Smith
-
-                    </h3>
-                </div>
-                <div class="clearfix"></div>
             </div>
         </div>
 
@@ -136,9 +148,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>

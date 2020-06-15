@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['email'])) {
+    $firstname = $_SESSION['firstname'];
+    // $lastname = $_SESSION['lastname'];
+ 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,22 +54,22 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">The Perfect Cup</a>
+                <a class="navbar-brand" href="index.php">The Perfect Cup</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="about.php">About</a>
                     </li>
                     <li>
-                        <a href="blog.html">Blog</a>
+                        <a href="blog.php">Blog</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.php">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -79,7 +86,7 @@
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">The Perfect Cup
-                        <strong>blog</strong>
+                        <strong>blog</strong>  <a href="login.php?logout='1'" style="color: red;">logout</a>
                     </h2>
                     <hr>
                 </div>
@@ -195,3 +202,11 @@
 </body>
 
 </html>
+<?php
+}
+
+else {
+    header("location:login.php");
+}
+ 
+?>
