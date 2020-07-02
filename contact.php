@@ -112,23 +112,29 @@
                     </h2>
                     <hr>
                     <div id="add_err2"></div>
-                    <form role="form">
+                    <h4 class="sent-notification"></h4>
+
+                    <form role="form" id="myForm">
                         <div class="row">
                             <div class="form-group col-lg-4">
                                 <label>Name</label>
-                                <input type="text" id="fname" name="fname" maxlength="25" class="form-control">
+                                <input type="text" id="name" name="fname" maxlength="25" class="form-control">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label>Email Address</label>
                                 <input type="email" id="email" name="email" maxlength="25" class="form-control">
                             </div>
+                            <div class="form-group col-lg-4">
+                                <label>Subject</label>
+                                <input type="text" id="subject" name="subject" maxlength="25" class="form-control">
+                            </div>
                             <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
                                 <label>Message</label>
-                                <textarea class="form-control" id="message" name="message" maxlength="100" rows="6"></textarea>
+                                <textarea class="form-control" id="body" name="message" maxlength="100" rows="6"></textarea>
                             </div>
                             <div class="form-group col-lg-12">
-                                <button type="submit" id="contact" class="btn btn-default">Submit</button>
+                                <button type="button" onclick="sendEmail()" value="Send An Email" class="btn btn-default">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -151,6 +157,46 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script type="text/javascript">
+  function sendEmail(){
+    var name = $("#name");
+    var email = $("#email");
+    var subject = $("#subject");
+    var body = $("#body");
+
+    if(isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)){
+      $.ajax({
+        url: 'sendEmail.php',
+        method: 'POST',
+        dataType: 'json',
+        data:{
+          name: name.val(),
+          email: email.val(),
+          subject: subject.val(),
+          body: body.val()
+        }, success: function(response){
+          $('#myForm')[0].reset();
+          $('.sent-notification').text("Message sent successfully.");
+        }
+      });
+    }
+  }
+  function isNotEmpty(caller){
+    if(caller.val() == ""){
+      caller.css('border','1px solid red');
+      return false;
+    }
+    else
+    {
+      caller.css('border', '');
+      return true;
+    }
+  }
+</script>
+
 
 </body>
 
